@@ -2,7 +2,11 @@
 const $ = (id) => document.getElementById(id);
 const screens = ["q1", "q2", "nf", "love"];
 
-function show(name) {
+const WRONG_LINK = "Sorry, you hit the wrong link.";
+const WRONG_SURNAME = "Sorry, I love only one Julia, and you're not the one.";
+
+function show(name, msg = WRONG_LINK) {
+  $("nfmsg").textContent = msg;
   screens.forEach((s) => $(s).classList.toggle("hidden", s !== name));
   if (name === "nf") document.title = "404 Not Found";
   if (name === "love") { document.title = "Love Heart"; startHeart(); }
@@ -14,7 +18,8 @@ $("no1").onclick = () => show("nf");
 $("form").onsubmit = (e) => {
   e.preventDefault();
   const v = $("surname").value.trim().toLowerCase();
-  show(v === "petrusiak" || v === "петрусяк" ? "love" : "nf");
+  if (v === "petrusiak" || v === "петрусяк") show("love");
+  else show("nf", WRONG_SURNAME);
 };
 
 // ---------- Heart (port of love.py) ----------
