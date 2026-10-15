@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="q1" class="screen">
+    <h1>Are you Julia?</h1>
+    <div class="row">
+      <button id="yes1" class="btn primary">Yes</button>
+      <button id="no1" class="btn">No</button>
+    </div>
+  </main>
+
+  <main id="q2" class="screen hidden">
+    <h1>Good, we're one step closer, but I love only one Julia.</h1>
+    <p>Please enter your surname (ENG or UKR)</p>
+    <form id="form" autocomplete="off">
+      <input id="surname" type="text" placeholder="Surname" aria-label="Surname" autofocus>
+      <button class="btn primary" type="submit">Continue</button>
+    </form>
+  </main>
+
+  <main id="nf" class="screen hidden">
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>Sorry, you hit the wrong link.</p>
+  </main>
+
+  <div id="love" class="hidden"><canvas id="cv"></canvas></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
