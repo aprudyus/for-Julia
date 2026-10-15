@@ -25,6 +25,7 @@ $("form").onsubmit = (e) => {
 // ---------- Heart (port of love.py) ----------
 const SC = 21, OY = 20, DURATION = 10000, ANIM = 42 * 16, LIFT = 34, GAP = 7;
 const SIZES = [9, 10, 11, 12];
+const UKR = "Я тебе кохаю", UKR_BOOST = 2; // slightly larger than the rest
 const PX = 4 / 3; // tk points -> css px
 const BG = [6 / 255, 2 / 255, 8 / 255];
 const FLASH = [1, 0.78, 0.78];
@@ -113,7 +114,7 @@ function build(rng) {
         let fit = null;
         for (let t = 0; t < 10; t++) {
           const text = next();
-          const size = SIZES[Math.floor(rng() * SIZES.length)];
+          const size = SIZES[Math.floor(rng() * SIZES.length)] + (text === UKR ? UKR_BOOST : 0);
           const w = measure(text, size);
           if (cur + w <= hi) { fit = { text, size, w }; break; }
         }
